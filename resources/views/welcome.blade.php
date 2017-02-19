@@ -5,7 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name') }}</title>
+        <title>
+            {{ config('app.name.en') }}
+            {{ config('app.name.ar') }}
+        </title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,6 +65,16 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            @font-face {
+                font-family: me_quran;
+                src: url('{{ asset('/font/me_quran.ttf') }}');
+            }
+
+            .ar {
+                font-family: me_quran;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
@@ -79,7 +92,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ config('app.name') }}
+                    {{ config('app.name.en') }}
+                    <span class="ar">
+                        {{ config('app.name.ar') }}
+                    </span>
                 </div>
 
                 <div class="links">
