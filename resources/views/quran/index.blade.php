@@ -23,6 +23,10 @@
     <div class="quran">
         {!! $ayat->are !!}
     </div>
+    <audio controls>
+        <source src="{{ url('/quran/audio/'.$ayat->audio) }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div>
         {!! $ayat->idn !!}
     </div>
