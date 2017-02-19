@@ -67,12 +67,12 @@
             }
 
             @font-face {
-                font-family: me_quran;
-                src: url('{{ asset('/font/me_quran.ttf') }}');
+                font-family: Mirza;
+                src: url('{{ asset('/font/Mirza-Regular.ttf') }}');
             }
 
             .ar {
-                font-family: me_quran;
+                font-family: Mirza;
                 text-align: right;
             }
         </style>
