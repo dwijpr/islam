@@ -41,7 +41,7 @@
 
             @font-face {
                 font-family: Mirza;
-                src: url('{{ asset('/font/Mirza-Regular.ttf') }}');
+                src: url('{{ asset('/font/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') }}');
             }
 
             .ar {
@@ -50,6 +50,7 @@
                 text-align: right;
             }
         </style>
+        @stack ('styles')
     </head>
     <body>
         <!-- Fixed navbar -->
