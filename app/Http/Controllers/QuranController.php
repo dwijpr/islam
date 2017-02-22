@@ -17,16 +17,8 @@ class Surah {
             preg_match('/quran\/'.$this->id.'.*\/(\d+)/', $directory, $match);
             $ayat->id = $match[1];
             $ayat->are = Storage::get($directory.'/are.md');
-            $ayat->are = explode(' ', $ayat->are);
-
             $ayat->idn = Storage::get($directory.'/idn.md');
-            $ayat->idn_sentence = last(explode("\n\n", $ayat->idn));
-            $ayat->idn = explode("\n", $ayat->idn);
-
             $ayat->int = Storage::get($directory.'/int.md');
-            $ayat->int_sentence = last(explode("\n\n", $ayat->int));
-            $ayat->int = explode("\n", $ayat->int);
-
             $ayat->audio = $this->id.sprintf('%03d', $ayat->id);
             $this->ayats[] = $ayat;
         }

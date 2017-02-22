@@ -29,26 +29,14 @@
             @foreach ($surahs as $surah)
             <div class="ayat">
                 @foreach ($surah->ayats as $ayat)
-                    <div class="ayat-sentence">
-                        @foreach ($ayat->are as $i => $word)
-                        <div class="arabic-word pull-right">
-                            <div class="ar">
-                                {!! $word !!}
-                            </div>
-                            <div>
-                                {!! $ayat->idn[$i] !!}
-                            </div>
-                            <div>
-                                {!! $ayat->int[$i] !!}
-                            </div>
-                        </div>
-                        @endforeach
+                    <div class="ar">
+                        {{ $ayat->are }}
                     </div>
                     <div>
-                        {!! $ayat->idn_sentence !!}
+                        {{ $ayat->idn }}
                     </div>
                     <div>
-                        {!! $ayat->int_sentence !!}
+                        {{ $ayat->int }}
                     </div>
                     <hr>
                     <audio controls>
