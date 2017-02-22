@@ -5,6 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage, stdClass;
 
+class Ayat {
+    public function __construct($surah, $ayat) {
+        $path = 'quran/'.sprintf('%03d', $surah).'/'.$ayat;
+        $this->are = Storage::get($path.'/are.md');
+        $this->idn = Storage::get($path.'/idn.md');
+        $this->int = Storage::get($path.'/int.md');
+        $this->audio = $this->id.sprintf('%03d', $ayat);
+    }
+}
+
 class Surah {
     public function __construct($input) {
         $this->name = str_replace('quran/', '', $input);
@@ -29,6 +39,13 @@ class QuranController extends Controller
 {
     public function audio($key) {
         return Storage::get('quran/audio/'.$key.'.mp3');
+    }
+
+    public function ayat($surah = 1, $ayat = 1) {
+        $ayat = new Ayat($surah, $ayat);
+        return view('quran.ayat', [
+            'ayat' => $ayat,
+        ]);
     }
 
     public function index() {
