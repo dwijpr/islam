@@ -44,7 +44,9 @@ class Quran extends Command
         $items = [];
         foreach ($suras as $i => $sura) {
             $item = new stdClass;
-            $item->dir = sprintf('%03d', $sura->id).'-'.text_to_url($sura->name);
+            $item->dir = 
+                sprintf('%03d', $sura->id).'-'.text_to_url($sura->name);
+            $item->count = count($sura->ayats);
             $items[] = $item;
         }
         $this->comment('creating Quran directory...');
@@ -57,10 +59,28 @@ class Quran extends Command
             $this->error('Failed to create Quran directory...');
         }
         foreach ($items as $i => $item) {
-            if (!Storage::makeDirectory($quran_path.'/'.$item->dir)) {
+            $item_directory = $quran_path.'/'.$item->dir;
+            if (!Storage::makeDirectory($item_directory)) {
                 $this->error('Failed to create Quran directory...');
             } else {
-                $this->line('creating directory '.$quran_path.'/'.$item->dir);
+                $this->line('creating directory '.$item_directory);
+                $success_directory_creation_count = 0;
+                for ($_i=1; $_i <= $item->count ; $_i++) { 
+                    $ayat_directory = $item_directory.'/'.sprintf('%03d', $_i);
+                    Storage::makeDirectory($ayat_directory);
+                    $success_directory_creation_count++;
+                }
+                if ($success_directory_creation_count == $item->count) {
+                    $this->info(
+                        'all '.$item->count.' directories created successfully!'
+                    );
+                } else {
+                    $this->error(
+                        'directories created: '
+                        .$success_directory_creation_count
+                        .' ... but should create '.$item->count.' directories'
+                    );
+                }
             }
         }
     }
