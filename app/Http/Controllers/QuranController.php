@@ -59,10 +59,6 @@ class QuranController extends Controller
             $surah = new Surah($directory);
             $surahs[] = $surah;
         }
-        $suras = Quran::getAllSura();
-        return view('quran.indexsura', [
-            'suras' => $suras,
-        ]);
         return view('quran.index', [
             'surahs' => $surahs,
         ]);
