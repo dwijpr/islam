@@ -1,0 +1,1 @@
+Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang.

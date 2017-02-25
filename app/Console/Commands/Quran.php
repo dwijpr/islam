@@ -68,6 +68,9 @@ class Quran extends Command
                 for ($_i=1; $_i <= $item->count ; $_i++) { 
                     $ayat_directory = $item_directory.'/'.sprintf('%03d', $_i);
                     Storage::makeDirectory($ayat_directory);
+                    Storage::put($ayat_directory.'/ar.md', '');
+                    Storage::put($ayat_directory.'/id.md', '');
+                    Storage::put($ayat_directory.'/en.md', '');
                     $success_directory_creation_count++;
                 }
                 if ($success_directory_creation_count == $item->count) {

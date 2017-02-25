@@ -27,25 +27,23 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="ayat">
-                @foreach ($surah->ayats as $ayat)
-                    <div class="ar">
-                        {{ $ayat->are }}
-                    </div>
-                    <div>
-                        {{ $ayat->idn }}
-                    </div>
-                    <div>
-                        {{ $ayat->int }}
-                    </div>
-                    <hr>
-                    <audio controls>
-                        <source
-                            src="{{ url('/quran/audio/'.$ayat->audio) }}"
-                            type="audio/mpeg"
-                        >
-                        Your browser does not support the audio element.
-                    </audio>
-                @endforeach
+                <div class="ar">
+                    {{ $ayat->ar }}
+                </div>
+                <div>
+                    {{ $ayat->id }}
+                </div>
+                <div>
+                    {{ $ayat->en }}
+                </div>
+                <hr>
+                <audio controls>
+                    <source
+                        src="{{ url('/quran/audio/'.$ayat->audio) }}"
+                        type="audio/mpeg"
+                    >
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
     </div>
