@@ -15,6 +15,14 @@ class Ayat {
         $this->ar = Storage::get($path.'/ar.md');
         $this->id = Storage::get($path.'/id.md');
         $this->en = Storage::get($path.'/en.md');
+        $word_directories = Storage::directories($path.'/words');
+        foreach ($word_directories as $i => $directory) {
+            $word = Storage::get($directory.'/ar.md');
+            $this->words[] = $word;
+            $this->ar = str_replace(
+                $word, '<span class="ar-word">'.$word.'</span>', $this->ar
+            );
+        }
         $this->audio = sprintf('%03d', $surah).sprintf('%03d', $ayat);
     }
 }

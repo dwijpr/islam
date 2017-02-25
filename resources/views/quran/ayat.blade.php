@@ -2,12 +2,11 @@
 
 @push ('styles')
 <style>
-.arabic-word {
-    display: inline-block;
-    padding-left: 15px;
+.ar-word {
+    padding-left: 9px;
 }
 
-.arabic-word:hover {
+.ar-word:hover {
     color: green;
 }
 
@@ -28,7 +27,7 @@
         <div class="col-sm-12">
             <div class="ayat">
                 <div class="ar">
-                    {{ $ayat->ar }}
+                    {!! $ayat->ar !!}
                 </div>
                 <div>
                     {{ $ayat->id }}
