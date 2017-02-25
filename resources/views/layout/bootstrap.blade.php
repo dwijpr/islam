@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="{{ asset('/img/favicon.png') }}">
-        <title>Fixed Top Navbar Example for Bootstrap</title>
+        <title>{{ config('app.name.en') }} {{ config('app.name.ar') }}</title>
         <!-- Bootstrap core CSS -->
         {{ Html::style('/bootstrap/3.3.7/dist/css/bootstrap.css') }}
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

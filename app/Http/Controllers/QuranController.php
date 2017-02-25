@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Storage, stdClass;
+use App\Quran;
 
 class Ayat {
     public function __construct($surah, $ayat) {
@@ -58,6 +59,10 @@ class QuranController extends Controller
             $surah = new Surah($directory);
             $surahs[] = $surah;
         }
+        $suras = Quran::getAllSura();
+        return view('quran.indexsura', [
+            'suras' => $suras,
+        ]);
         return view('quran.index', [
             'surahs' => $surahs,
         ]);
