@@ -1,0 +1,2 @@
+Wahai orang-orang yang beriman! Masuklah ke dalam Islam secara keseluruhan, dan
+janganlah kamu ikuti langkah-langkah setan. Sungguh, ia musuh yang nyata bagimu.
