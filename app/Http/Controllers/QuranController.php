@@ -18,9 +18,18 @@ class Ayat {
         $word_directories = Storage::directories($path.'/words');
         foreach ($word_directories as $i => $directory) {
             $word = Storage::get($directory.'/ar.md');
+            $word_id =
+                Storage::exists($directory.'/id.md')
+                ?Storage::get($directory.'/id.md'):'';
             $this->words[] = $word;
-            $this->ar = str_replace(
-                $word, '<span class="ar-word">'.$word.'</span>', $this->ar
+            $view = view('partial.quran-word-span', [
+                'word' => $word,
+                'trans' => $word_id,
+            ])->render();
+            $this->ar = preg_replace(
+                '/'.$word.'/'
+                , $view
+                , $this->ar, 1
             );
         }
         $this->audio = sprintf('%03d', $surah).sprintf('%03d', $ayat);

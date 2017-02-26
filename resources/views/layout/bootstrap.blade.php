@@ -101,5 +101,6 @@
         {{ Html::script(
             '/bootstrap/3.3.7/assets/js/ie10-viewport-bug-workaround.js'
         ) }}
+        @stack ('scripts')
     </body>
 </html>

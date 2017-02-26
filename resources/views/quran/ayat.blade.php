@@ -48,3 +48,11 @@
     </div>
 </div>
 @endsection
+
+@push ('scripts')
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+@endpush
