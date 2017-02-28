@@ -1,0 +1,1 @@
+dan barang siapa

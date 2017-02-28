@@ -29,9 +29,11 @@
                 <div class="ar">
                     {!! $ayat->ar !!}
                 </div>
+                <br>
                 <div>
                     {{ $ayat->id }}
                 </div>
+                <br>
                 <div>
                     {{ $ayat->en }}
                 </div>

@@ -1,0 +1,1 @@
+terhadap ayat-ayat
