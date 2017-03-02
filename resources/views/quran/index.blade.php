@@ -32,6 +32,10 @@
                         {{ Html::link(
                             '/quran/'.$surah->quranSura->id
                             , $surah->quranSura->name
+                            , [
+                                'style' =>
+                                    'opacity: '.($surah->progress/100).';',
+                            ]
                         ) }}
                     </div>
                 @endforeach

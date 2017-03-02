@@ -58,6 +58,8 @@ class Quran extends Command
         if (!Storage::makeDirectory($quran_path)) {
             $this->error('Failed to create Quran directory...');
         }
+        $template =
+            Storage::get('/template/quran-sura-ayat-data.json');
         foreach ($items as $i => $item) {
             $item_directory = $quran_path.'/'.$item->dir;
             if (!Storage::makeDirectory($item_directory)) {
@@ -71,6 +73,7 @@ class Quran extends Command
                     Storage::put($ayat_directory.'/ar.md', '');
                     Storage::put($ayat_directory.'/id.md', '');
                     Storage::put($ayat_directory.'/en.md', '');
+                    Storage::put($ayat_directory.'/data.json', $template);
                     $success_directory_creation_count++;
                 }
                 if ($success_directory_creation_count == $item->count) {

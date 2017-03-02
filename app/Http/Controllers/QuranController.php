@@ -7,7 +7,10 @@ use Storage, stdClass;
 use App\QuranSura;
 
 class Ayat {
+    var $progress = 0;
+
     public function __construct($surah, $ayat) {
+        $this->_id = $ayat;
         $sura_dir_name = text_to_url(QuranSura::$NAMES[$surah]);
         $path =
             'quran/'.sprintf('%03d', $surah).'-'.$sura_dir_name
@@ -16,6 +19,28 @@ class Ayat {
         $this->id = Storage::get($path.'/id.md');
         $this->en = Storage::get($path.'/en.md');
         $word_directories = Storage::directories($path.'/words');
+        $data = json_decode(Storage::get($path.'/data.json'));
+        $this->audio = sprintf('%03d', $surah).sprintf('%03d', $ayat);
+        if (!Storage::exists('/quran/audio/'.$this->audio.'.mp3')) {
+            $this->audio = false;
+        }
+        if ($this->ar) {
+            $this->progress += 25;
+            if ($this->id) {
+                $this->progress += 15;
+                if ($this->en) {
+                    $this->progress += 10;
+                    if ($data->words->count) {
+                        $this->progress += 1;
+                        $this->progress +=
+                            (44*(count($word_directories)/$data->words->count));
+                        if ($this->audio) {
+                            $this->progress += 5;
+                        }
+                    }
+                }
+            }
+        }
         foreach ($word_directories as $i => $directory) {
             $word = Storage::get($directory.'/ar.md');
             $word_id =
@@ -32,25 +57,28 @@ class Ayat {
                 , $this->ar, 1
             );
         }
-        $this->audio = sprintf('%03d', $surah).sprintf('%03d', $ayat);
     }
 }
 
 class Surah {
-    var $progress;
+    var $progress = 0;
     
     public function __construct($input) {
         $this->identifier = str_replace('quran/', '', $input);
         preg_match('/(\d{3})-.+$/', $input, $match);
         $this->id = $match[1];
+        $this->_id = intval($this->id);
         $this->quranSura = new QuranSura(intval($this->id));
         $this->ayats = [];
-        $directories = Storage::directories('quran/'.$input);
+        $directories = Storage::directories('quran/'.$this->identifier);
         foreach ($directories as $i => $directory) {
             preg_match('/quran\/'.$this->id.'.*\/(\d+)/', $directory, $match);
             $id = $match[1];
-            $this->ayats[] = new Ayat(intval($this->id), $id);
+            $ayat = new Ayat(intval($this->id), intval($id));
+            $this->progress += $ayat->progress;
+            $this->ayats[] = $ayat;
         }
+        $this->progress = ($this->progress/$this->quranSura->count);
     }
 }
 

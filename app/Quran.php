@@ -18,4 +18,8 @@ class Quran extends Model
         }
         return collect($suras);
     }
+
+    public static function ayatCount($id) {
+        return self::where('SuraID', $id)->get()->count();
+    }
 }

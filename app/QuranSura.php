@@ -128,5 +128,6 @@ class QuranSura
         if (@self::$NAMES[$id]) {
             $this->name = self::$NAMES[$id];
         }
+        $this->count = Quran::ayatCount($id);
     }
 }

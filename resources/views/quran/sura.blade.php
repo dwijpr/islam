@@ -11,8 +11,6 @@
 }
 
 .ayat {
-    border: 1px solid #efefef;
-    padding: 19px;
 }
 
 .ayat .ayat-sentence {
@@ -25,11 +23,33 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
+            <h1 class="text-center">{{ $sura->quranSura->name }}</h1>
+            @if ($sura->progress !== 100)
+                <h1 class="text-center" style="opacity: {{
+                    !$sura->progress?1:((100-$sura->progress)/100)
+                }};">
+                    {{ $sura->progress.' %' }}
+                </h1>
+            @endif
+            <hr>
             @foreach ($sura->ayats as $ayat)
-                <div class="ayat">
+                <?php
+                    if ($ayat->progress === 0) {
+                        continue;
+                    }
+                ?>
+                <div
+                    class="ayat"
+                    style="opacity: {{ $ayat->progress/100 }};"
+                >
                     <div class="ar">
                         {!! $ayat->ar !!}
                     </div>
+                    <br>
+                    {{ Html::link(
+                        '/quran/'.$sura->_id.'/'.$ayat->_id
+                        , $sura->_id.':'.$ayat->_id
+                    ) }}
                     <br>
                     <div>
                         {{ $ayat->id }}
@@ -39,13 +59,15 @@
                         {{ $ayat->en }}
                     </div>
                     <hr>
-                    <audio controls>
-                        <source
-                            src="{{ url('/quran/audio/'.$ayat->audio) }}"
-                            type="audio/mpeg"
-                        >
-                        Your browser does not support the audio element.
-                    </audio>
+                    @if ($ayat->audio)
+                        <audio controls>
+                            <source
+                                src="{{ url('/quran/audio/'.$ayat->audio) }}"
+                                type="audio/mpeg"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    @endif
                 </div>
             @endforeach
         </div>
