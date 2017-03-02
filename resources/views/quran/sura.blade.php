@@ -1,0 +1,62 @@
+@extends ('layout.bootstrap')
+
+@push ('styles')
+<style>
+.ar-word {
+    padding-left: 9px;
+}
+
+.ar-word:hover {
+    color: green;
+}
+
+.ayat {
+    border: 1px solid #efefef;
+    padding: 19px;
+}
+
+.ayat .ayat-sentence {
+    overflow: auto;
+}
+</style>
+@endpush
+
+@section ('content')
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @foreach ($sura->ayats as $ayat)
+                <div class="ayat">
+                    <div class="ar">
+                        {!! $ayat->ar !!}
+                    </div>
+                    <br>
+                    <div>
+                        {{ $ayat->id }}
+                    </div>
+                    <br>
+                    <div>
+                        {{ $ayat->en }}
+                    </div>
+                    <hr>
+                    <audio controls>
+                        <source
+                            src="{{ url('/quran/audio/'.$ayat->audio) }}"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endsection
+
+@push ('scripts')
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+@endpush

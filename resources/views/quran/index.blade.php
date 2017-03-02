@@ -26,29 +26,16 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            @foreach ($surahs as $surah)
-            <div class="ayat">
-                @foreach ($surah->ayats as $ayat)
-                    <div class="ar">
-                        {{ $ayat->are }}
+            <div class="row">
+                @foreach ($surahs as $surah)
+                    <div class="col-md-2 col-sm-4 col-xs-6">
+                        {{ Html::link(
+                            '/quran/'.$surah->quranSura->id
+                            , $surah->quranSura->name
+                        ) }}
                     </div>
-                    <div>
-                        {{ $ayat->idn }}
-                    </div>
-                    <div>
-                        {{ $ayat->int }}
-                    </div>
-                    <hr>
-                    <audio controls>
-                        <source
-                            src="{{ url('/quran/audio/'.$ayat->audio) }}"
-                            type="audio/mpeg"
-                        >
-                        Your browser does not support the audio element.
-                    </audio>
                 @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </div>
