@@ -28,28 +28,43 @@ class Ayat {
             $this->progress += 25;
             if ($this->id) {
                 $this->progress += 15;
-                if ($this->en) {
-                    $this->progress += 10;
-                    if ($data->words->count) {
-                        $this->progress += 1;
-                        $this->progress +=
-                            (44*(count($word_directories)/$data->words->count));
-                        if ($this->audio) {
-                            $this->progress += 5;
-                        }
+            }
+            if ($this->en) {
+                $this->progress += 10;
+            }
+            if ($this->audio) {
+                $this->progress += 5;
+            }
+        }
+        if ($data->words->count) {
+            $this->progress += 1;
+            $per_word_progress = 44/$data->words->count;
+        }
+        foreach ($word_directories as $i => $directory) {
+            if (@$per_word_progress) {
+                if (Storage::exists($directory.'/ar.md')) {
+                    $this->progress += $per_word_progress/2;
+                    if (Storage::exists($directory.'/id.md')) {
+                        $this->progress += $per_word_progress/3;
+                    }
+                    if (Storage::exists($directory.'/en.md')) {
+                        $this->progress += $per_word_progress/6;
                     }
                 }
             }
-        }
-        foreach ($word_directories as $i => $directory) {
-            $word = Storage::get($directory.'/ar.md');
+            $word = 
+                Storage::exists($directory.'/ar.md')
+                ?Storage::get($directory.'/ar.md'):'';
             $word_id =
                 Storage::exists($directory.'/id.md')
                 ?Storage::get($directory.'/id.md'):'';
+            $word_en =
+                Storage::exists($directory.'/en.md')
+                ?Storage::get($directory.'/en.md'):'';
             $this->words[] = $word;
             $view = view('partial.quran-word-span', [
                 'word' => $word,
-                'trans' => $word_id,
+                'trans' => $word_id.' | '.$word_en,
             ])->render();
             $this->ar = preg_replace(
                 '/'.$word.'/'
