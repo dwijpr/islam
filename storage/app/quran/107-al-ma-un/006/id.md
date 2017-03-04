@@ -1,0 +1,1 @@
+orang-orang yang berbuat riya,

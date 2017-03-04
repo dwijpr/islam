@@ -1,0 +1,1 @@
+dan tidak menganjurkan memberi makan orang miskin.

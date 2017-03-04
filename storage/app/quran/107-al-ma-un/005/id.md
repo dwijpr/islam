@@ -1,0 +1,1 @@
+(yaitu) orang-orang yang lalai dari shalatnya,

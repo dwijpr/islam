@@ -1,0 +1,1 @@
+Itulah orang yang menghardik anak yatim,

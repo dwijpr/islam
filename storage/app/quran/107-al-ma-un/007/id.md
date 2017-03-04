@@ -1,0 +1,1 @@
+dan enggan (menolong dengan) barang berguna.
