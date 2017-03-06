@@ -105,12 +105,12 @@
             }
 
             @font-face {
-                font-family: Mirza;
-                src: url('{{ asset('/font/Mirza-Regular.ttf') }}');
+                font-family: QalamMajeed;
+                src: url('{{ asset('/font/qalam_majeed.ttf') }}');
             }
 
             .ar {
-                font-family: Mirza;
+                font-family: QalamMajeed;
                 text-align: right;
             }
         </style>

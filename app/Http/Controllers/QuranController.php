@@ -40,6 +40,15 @@ class Ayat {
             $this->progress += 1;
             $per_word_progress = 44/$data->words->count;
         }
+        $marks = [
+            'ۖ', 'ؕ', 'ۙ',
+        ];
+        foreach ($marks as $i => $mark) {
+            $view = view('partial.quran-mark-span', [
+                'mark' => $mark,
+            ])->render();
+            $this->ar = str_replace($mark, $view, $this->ar);
+        }
         foreach ($word_directories as $i => $directory) {
             if (@$per_word_progress) {
                 if (Storage::exists($directory.'/ar.md')) {

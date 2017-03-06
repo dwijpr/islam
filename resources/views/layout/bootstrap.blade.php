@@ -87,12 +87,12 @@
             }
 
             @font-face {
-                font-family: Mirza;
-                src: url('{{ asset('/font/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') }}');
+                font-family: QalamMajeed;
+                src: url('{{ asset('/font/qalam_majeed.ttf') }}');
             }
 
             .ar {
-                font-family: Mirza;
+                font-family: QalamMajeed;
                 font-size: 48px;
                 text-align: right;
             }
