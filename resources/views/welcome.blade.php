@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/quran') }}">Quran</a>
+                    <a href="{{ url('/quran/progress') }}">Quran</a>
                     <a href="javascript:">Sunnah</a>
                 </div>
             </div>

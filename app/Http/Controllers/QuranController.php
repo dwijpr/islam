@@ -108,6 +108,30 @@ class Surah {
 
 class QuranController extends Controller
 {
+    public function progress() {
+        $surahs = [];
+        $directories = Storage::directories('quran');
+        foreach ($directories as $i => $directory) {
+            if ($directory === 'quran/audio') {
+                continue;
+            }
+            $surah = new Surah($directory);
+            if ($surah->progress) {
+                $surahs[] = $surah;
+            }
+        }
+        foreach ($surahs as $i => $sura) {
+            foreach ($sura->ayats as $_i => $aya) {
+                if (!$aya->progress) {
+                    unset($surahs[$i]->ayats[$_i]);
+                }
+            }
+        }
+        return view('quran.progress', [
+            'surahs' => $surahs,
+        ]);
+    }
+
     public function audio($key) {
         return Storage::get('quran/audio/'.$key.'.mp3');
     }

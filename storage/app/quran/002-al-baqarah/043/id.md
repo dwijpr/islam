@@ -1,0 +1,1 @@
+Dan laksanakanlah sholat, tunaikanlah zakat, dan rukuklah beserta orang yang rukuk.
