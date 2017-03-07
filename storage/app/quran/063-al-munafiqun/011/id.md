@@ -1,0 +1,1 @@
+Dan Allah tidak akan menunda (kematian) seseorang apabila waktu kematiannya telah datang. Dan Allah Maha Mengetahui terhadap apa yang kamu kerjakan.

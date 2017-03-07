@@ -42,7 +42,6 @@
                                     '/quran/'.$surah->_id.'/'.$aya->_id
                                     , $surah->_id.':'.$aya->_id
                                 ) }}
-                                {{ $surah->_id.':'.$aya->_id }}
                                 @if ($aya->progress < 100)
                                     {{ sprintf('%.2f', $aya->progress).' %' }}
                                 @endif

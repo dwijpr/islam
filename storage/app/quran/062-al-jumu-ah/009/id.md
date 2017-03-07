@@ -1,0 +1,1 @@
+Wahai orang-orang yang beriman! Apabila telah diseru untuk melaksanakan sholat pada hari Jum'at, maka segeralah kamu mengingat Allah dan tinggalkanlah jual beli. Yang demikian itu lebih baik bagimu jika kamu mengetahui.
