@@ -41,6 +41,9 @@
                                 {{ Html::link(
                                     '/quran/'.$surah->_id.'/'.$aya->_id
                                     , $surah->_id.':'.$aya->_id
+                                    , [
+                                        'target' => '_blank'
+                                    ]
                                 ) }}
                                 @if ($aya->progress < 100)
                                     {{ sprintf('%.2f', $aya->progress).' %' }}
