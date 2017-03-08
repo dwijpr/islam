@@ -1,0 +1,1 @@
+dan ruku'lah kamu
