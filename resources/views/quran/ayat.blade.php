@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="ayat">
-                @if ($ayat->progress !== 100)
+                @if ($ayat->progress < 100)
                     <h1 style="opacity: {{
                         !$ayat->progress?1:((100-$ayat->progress)/100)
                     }};">
@@ -44,15 +44,15 @@
                 <div>
                     {{ $ayat->en }}
                 </div>
-                <hr>
                 @if ($ayat->audio)
-                <audio controls>
-                    <source
-                        src="{{ url('/quran/audio/'.$ayat->audio) }}"
-                        type="audio/mpeg"
-                    >
-                    Your browser does not support the audio element.
-                </audio>
+                    <hr>
+                    <audio controls>
+                        <source
+                            src="{{ url('/quran/audio/'.$ayat->audio) }}"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support the audio element.
+                    </audio>
                 @endif
             </div>
         </div>
