@@ -41,7 +41,7 @@ class Ayat {
             $per_word_progress = 44/$data->words->count;
         }
         $marks = [
-            'ۖ', 'ؕ', 'ۙ',
+            'ۖ', 'ؕ', 'ۙ', 'ۚ',
         ];
         foreach ($marks as $i => $mark) {
             $view = view('partial.quran-mark-span', [
