@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/title_arabic" android:key="categoryArabic">
+        <com.andi.alquran.customviews.MyListPreference android:entries="@array/arrTypeArabic" android:title="@string/arabic_type_style" android:key="typeArabic" android:entryValues="@array/arrTypeArabicValues" />
+        <ListPreference android:entries="@array/arrArabicFontSize" android:title="@string/arabic_font_size" android:key="fontSizeArabic" android:entryValues="@array/arrArabicFontSize" />
+        <CheckBoxPreference android:title="@string/show_no_ayat_arabic_title" android:key="showNomorAyatArabic" android:summary="@string/show_no_ayat_arabic_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/title_latin" android:key="categoryLatin">
+        <CheckBoxPreference android:title="@string/show_latin" android:key="showLatin" android:summary="@string/show_latin_desc" />
+        <ListPreference android:entries="@array/arrTypeLatin" android:title="@string/latin_type" android:key="latinType" android:dependency="showLatin" android:entryValues="@array/arrTypeLatinValues" />
+        <ListPreference android:entries="@array/arrLatinFontSize" android:title="@string/latin_font_size" android:key="fontSizeLatin" android:dependency="showLatin" android:entryValues="@array/arrLatinFontSize" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/title_translation" android:key="categoryTranslation">
+        <CheckBoxPreference android:title="@string/show_translation" android:key="showTranslation" android:summary="@string/show_translation_desc" />
+        <ListPreference android:entries="@array/arrTypeTranslation" android:title="@string/translation_type" android:key="translationType" android:dependency="showTranslation" android:entryValues="@array/arrTypeTranslationValues" />
+        <ListPreference android:entries="@array/arrTranslationFontSize" android:title="@string/translation_font_size" android:key="fontSizeTranslation" android:dependency="showTranslation" android:entryValues="@array/arrTranslationFontSize" />
+        <CheckBoxPreference android:title="@string/word_by_word" android:key="wordByWord" android:summary="@string/word_by_word_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/audio_murottal" android:key="categoryAudio">
+        <Preference android:title="@string/folder_path" android:key="mp3Directory" android:summary="@string/folder_path_desc" />
+        <ListPreference android:entries="@array/arrTypeQori" android:title="@string/qori_selected" android:key="qoriSelected" android:entryValues="@array/arrTypeQoriValues" />
+        <Preference android:title="@string/audio_manager" android:key="audioManager" android:summary="@string/audio_manager_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/general" android:key="categoryGeneral">
+        <ListPreference android:entries="@array/arrTypeTheme" android:title="@string/theme_selected" android:key="themeSelected" android:entryValues="@array/arrTypeThemeValues" />
+        <ListPreference android:entries="@array/arrTypeActionAya" android:title="@string/action_aya" android:key="actionAya" android:entryValues="@array/arrTypeActionAyaValues" />
+        <CheckBoxPreference android:title="@string/keep_screen_on" android:key="keepScreenOn" android:summary="@string/keep_screen_on_desc" />
+        <CheckBoxPreference android:title="@string/full_screen" android:key="fullScreen" android:summary="@string/full_screen_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/info" android:key="categoryInfo">
+        <Preference android:icon="@drawable/menu_check_update" android:title="@string/checkupdate" android:key="checkUpdate" android:summary="@string/checkupdate_desc" />
+        <Preference android:icon="@drawable/menu_rate_app" android:title="@string/rate_app" android:key="rateApp" android:summary="@string/rate_app_desc" />
+        <Preference android:icon="@drawable/menu_other_app" android:title="@string/other_app" android:key="otherApp" android:summary="@string/other_app_desc" />
+        <Preference android:icon="@drawable/menu_share_app" android:title="@string/share_app" android:key="shareApp" android:summary="@string/share_app_desc" />
+        <Preference android:icon="@drawable/menu_about" android:title="@string/aboutme" android:key="aboutMe" android:summary="@string/aboutme_desc" />
+        <Preference android:icon="@drawable/menu_infaq" android:title="@string/infaq" android:key="upgradeToPro" android:summary="@string/infaq_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+</PreferenceScreen>

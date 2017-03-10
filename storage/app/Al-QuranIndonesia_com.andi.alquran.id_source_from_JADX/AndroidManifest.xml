@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:"http://schemas.android.com/apk/res/android" android:versionCode="94" android:versionName="2.5.94" android:installLocation="auto" package="com.andi.alquran.id" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="25" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+    <uses-feature android:glEsVersion="20000" android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+    <application android:theme="@style/AndiThemeNoHeader" android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:name="com.andi.alquran.App" android:configChanges="keyboardHidden|orientation|screenSize" android:allowBackup="true" android:hardwareAccelerated="true">
+        <activity android:theme="@style/AndiThemeHome" android:label="@string/app_name" android:name="com.andi.alquran.ActivityHome" android:configChanges="keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.andi.alquran.ActivitySearch" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/search" />
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.andi.alquran.ActivityList" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:label="@string/app_name" android:name="com.andi.alquran.ActivityQuran" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:label="@string/info_app" android:name="com.andi.alquran.ActivityInfoApp" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/setting" android:name="com.andi.alquran.ActivitySetting" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/setting" android:name="com.andi.alquran.ActivitySettingV10" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:label="@string/audio_manager" android:name="com.andi.alquran.ActivityAudioManager" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeNoHeader" android:label="@string/app_name" android:name="com.andi.alquran.ActivityPTime" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_qibla" android:name="com.andi.alquran.ActivityPTimeQibla" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_maps" android:name="com.andi.alquran.ActivityPTimeMapChooseCity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_maps_distance" android:name="com.andi.alquran.ActivityPTimeMapDistance" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_thirty" android:name="com.andi.alquran.ActivityPTimeThirty" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_settings" android:name="com.andi.alquran.ActivityPTimeSetting" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_settings" android:name="com.andi.alquran.ActivityPTimeSettingV10" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/AndiThemeWithHeader" android:label="@string/activity_title_settings" android:name="com.andi.alquran.ActivityPTimeSettingV10Manual" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <receiver android:name="com.andi.alquran.broadcasts.CallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.andi.alquran.broadcasts.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.andi.alquran.services.MultiDownloadService" />
+        <service android:name="com.andi.alquran.services.SingleDownloadService" />
+        <service android:name="com.andi.alquran.services.MurattalService" android:enabled="true" android:exported="false" />
+        <service android:name="com.andi.alquran.services.NotifSholatService" android:enabled="true" android:exported="false" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAyuxxVZfHrTXJXyvMpsmO1q29-cPAvdXg" />
+        <activity android:theme="@*android:style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false" />
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" android:enabled="true" />
+        <activity android:theme="@style/Theme_IAPTheme" android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" />
+        <activity android:theme="@*android:style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" />
+    </application>
+</manifest>

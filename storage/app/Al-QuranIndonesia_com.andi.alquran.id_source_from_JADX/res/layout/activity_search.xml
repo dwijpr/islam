@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:id="@id/main_layout" android:background="@color/putih" android:layout_width="-1" android:layout_height="-1">
+    <include android:id="@id/toolbar" layout="@layout/toolbar_search" />
+    <ExpandableListView android:id="@id/expandableSearch" android:visibility="2" android:layout_width="-1" android:layout_height="-2" android:cacheColorHint="@color/bgkatademikata" android:childDivider="@color/bgkatademikata" android:divider="@color/bgkatademikata" android:dividerHeight="1dp" android:layout_below="@id/toolbar" />
+    <ImageView android:id="@id/imgNotFound" android:paddingTop="15dp" android:visibility="2" android:layout_width="50dp" android:layout_height="50dp" android:src="@drawable/ic_search_not_found" android:layout_below="@id/expandableSearch" android:layout_centerHorizontal="true" />
+    <TextView android:gravity="11" android:id="@id/emptyElement" android:paddingLeft="10dp" android:paddingTop="10dp" android:paddingRight="10dp" android:paddingBottom="10dp" android:layout_width="-1" android:layout_height="-2" android:text="@string/search_default_empty_data" android:layout_below="@id/imgNotFound" />
+    <RelativeLayout android:id="@id/historyContent" android:background="@color/bgkatademikata" android:paddingLeft="10dp" android:layout_width="-1" android:layout_height="-2" android:layout_below="@id/emptyElement" android:layout_centerVertical="true">
+        <TextView android:textStyle="1" android:textColor="@color/texttranslation2" android:id="@id/infoHistory" android:layout_width="-1" android:layout_height="-2" android:text="@string/history" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <ImageButton android:id="@id/buttonClearHistory" android:background="?unknown_attr_ref: 7f01006a" android:paddingLeft="6dp" android:paddingTop="6dp" android:paddingRight="6dp" android:paddingBottom="6dp" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_black_delete_audio" android:scaleType="3" android:adjustViewBounds="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <ListView android:id="@id/listHistory" android:layout_width="-1" android:layout_height="-2" android:cacheColorHint="@color/bgkatademikata" android:childDivider="@color/bgkatademikata" android:divider="@color/bgkatademikata" android:dividerHeight="1dp" android:layout_below="@id/historyContent" />
+</RelativeLayout>

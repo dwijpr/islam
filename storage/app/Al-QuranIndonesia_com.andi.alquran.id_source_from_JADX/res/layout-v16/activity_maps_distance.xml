@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:id="@id/mapsFragmentLayout" android:layout_width="-1" android:layout_height="-1">
+    <fragment android:name="com.google.android.gms.maps.SupportMapFragment" android:id="@id/map" android:layout_width="-1" android:layout_height="0dp" android:layout_weight="1.0" />
+    <TextView android:textColor="@color/hitamnoterang" android:gravity="11" android:layout_gravity="11" android:id="@id/distanceInfo" android:padding="10dp" android:layout_width="-2" android:layout_height="-2" android:text="@string/qibla_distance_second" android:fontFamily="sans-serif-light" />
+</LinearLayout>

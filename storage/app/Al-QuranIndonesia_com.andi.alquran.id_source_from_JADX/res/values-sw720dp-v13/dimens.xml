@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border_button_home">4.0dip</dimen>
+    <dimen name="button_home_font_size">23.0sp</dimen>
+    <dimen name="button_home_height">68.0dip</dimen>
+    <dimen name="button_home_landscape_font_size">20.0sp</dimen>
+    <dimen name="button_home_landscape_height">60.0dip</dimen>
+    <dimen name="button_home_landscape_width">700.0dip</dimen>
+    <dimen name="button_home_landscape_width_onecolumn">350.0dip</dimen>
+    <dimen name="button_home_margin">14.0dip</dimen>
+    <dimen name="button_home_margin_left_right">8.0dip</dimen>
+    <dimen name="button_home_margin_top_bottom">20.0dip</dimen>
+    <dimen name="button_home_width">380.0dip</dimen>
+    <dimen name="padding_qibla">30.0dip</dimen>
+    <dimen name="quran_home_height">122.0dip</dimen>
+    <dimen name="quran_home_width">170.0dip</dimen>
+</resources>

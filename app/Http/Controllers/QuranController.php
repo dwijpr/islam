@@ -86,8 +86,15 @@ class Ayat {
 
 class Surah {
     var $progress = 0;
+
+    static $sura_artis = false;
+    static $resource_dir =
+        'Al-QuranIndonesia_com.andi.alquran.id_source_from_JADX';
     
     public function __construct($input) {
+        if (!self::$sura_artis) {
+            $this->load();
+        }
         $this->identifier = str_replace('quran/', '', $input);
         preg_match('/(\d{3})-.+$/', $input, $match);
         $this->id = $match[1];
@@ -103,6 +110,17 @@ class Surah {
             $this->ayats[] = $ayat;
         }
         $this->progress = ($this->progress/$this->quranSura->count);
+        $this->arti = self::$sura_artis[$this->_id-1];
+    }
+
+    function load() {
+        $dataPath = self::$resource_dir.'/res/values/arrays.xml';
+        $xml = simplexml_load_string(Storage::get($dataPath));
+        $sura_artis = $xml->{"string-array"}[26];
+        self::$sura_artis = [];
+        foreach ($sura_artis as $i => $sura_arti) {
+            self::$sura_artis[] = str_replace('"', '', strval($sura_arti));
+        }
     }
 }
 

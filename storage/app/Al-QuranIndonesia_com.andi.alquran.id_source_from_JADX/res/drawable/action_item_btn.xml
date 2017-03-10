@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="true">
+    <item android:state_window_focused="false" android:drawable="0x106000d" />
+    <item android:state_pressed="true" android:drawable="@color/bgButtonMenuClicked" />
+    <item android:state_focused="true" android:drawable="@color/bgButtonMenuClicked" />
+    <item android:drawable="0x106000d" />
+</selector>

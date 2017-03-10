@@ -29,10 +29,10 @@
             <div class="row">
                 @foreach ($surahs as $surah)
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        {{ Html::link(
+                        {!! Html::link(
                             '/quran/'.$surah->quranSura->id
-                            , $surah->quranSura->name
-                        ) }}
+                            , $surah->quranSura->name.' ('.$surah->arti.')'
+                        ) !!}
                         <span class="badge">
                             {{ sprintf('%.2f', $surah->progress).' %' }}
                         </span>

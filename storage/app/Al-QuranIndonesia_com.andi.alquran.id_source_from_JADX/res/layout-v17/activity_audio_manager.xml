@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:background="@color/putih" android:fitsSystemWindows="true" android:layout_width="-1" android:layout_height="-1">
+    <include android:id="@id/header" layout="@layout/header_custom_audio_manager" />
+    <View android:id="@id/border" android:background="@color/tabList" android:layout_width="-1" android:layout_height="2dp" android:layout_below="@id/header" />
+    <RelativeLayout android:id="@id/titleTest" android:paddingLeft="10dp" android:paddingTop="5dp" android:paddingRight="10dp" android:paddingBottom="5dp" android:layout_width="-1" android:layout_height="-2" android:layout_below="@id/border">
+        <TextView android:textAppearance="@style/TextAppearance_AppCompat_Medium" android:textStyle="1" android:textColor="@color/hitamnoterang" android:gravity="11" android:id="@id/textInfoTitle" android:layout_width="-1" android:layout_height="-2" android:text="@string/qori_selected" />
+        <TextView android:textAppearance="@style/TextAppearance_AppCompat_Small" android:textColor="@color/hitam" android:gravity="11" android:id="@id/textInfoDesc" android:layout_width="-1" android:layout_height="-2" android:layout_below="@id/textInfoTitle" />
+        <CheckBox android:gravity="10" android:id="@id/checkAll" android:layout_width="-2" android:layout_height="-2" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <ListView android:id="@id/list" android:layout_width="-1" android:layout_height="-2" android:cacheColorHint="@color/bgkatademikata" android:dividerHeight="0.3dp" android:layout_below="@id/titleTest" />
+</RelativeLayout>

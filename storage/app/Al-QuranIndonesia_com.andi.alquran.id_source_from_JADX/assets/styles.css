@@ -1,0 +1,92 @@
+/* CSS for this app */
+@font-face {
+	font-family: 'Fontin-Bold';
+	src: url('Fontin-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Fontin-Regular';
+	src: url('Fontin-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Fontin-Italic';
+	src: url('Fontin-Italic.ttf') format('truetype');
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FFFFFF;
+	font-family: 'Fontin-Regular', sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	color: #333333;
+}
+
+strong {
+	font-family: 'Fontin-Bold', sans-serif;
+}
+
+a {
+	color: #20A294;
+	text-decoration: underline;
+}
+
+.title {
+	text-align: center;
+	color: #20A294;
+	font-size: 20px;
+}
+
+.info {
+	padding: 5px 0px 0px 0px;
+	text-align: left;
+}
+
+p {
+	margin: 5px 0 7px 0;
+	padding: 0;
+}
+
+img {
+	width: 250px;
+	height: auto;
+}
+
+ul {
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+ul li {
+	margin: 7px 0px;
+	text-align: left;
+}
+
+ul.fitur li {
+	font-size: 14px;
+	margin: 4px 0px;
+}
+
+ul.fitur li ol {
+	margin: 0px;
+	padding: 0 0 0 20px;
+}
+
+ul.fitur li ol li {
+	font-size: 14px;
+	margin: 0px;
+	list-style-type: circle;
+}
+
+ul li strong.new {
+	color: red;
+}
+
+.andasuka {
+	font-family: 'Fontin-Italic';
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+    <item appcompat:id="@id/action_search" appcompat:title="@string/search" appcompat:icon="@drawable/ic_action_search" appcompat:showAsAction="2" appcompat:actionViewClass="android.support.v7.widget.SearchView" />
+</menu>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen>
+    <com.andi.alquran.customviews.MyCategoryPreference andi:title="@string/adjust_manual_desc">
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/imsak" andi:key="adjustManualImsak" andi:summary="@string/adjust_manual_imsak_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/subuh" andi:key="adjustManualSubuh" andi:summary="@string/adjust_manual_subuh_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/sunrise" andi:key="adjustManualTerbit" andi:summary="@string/adjust_manual_terbit_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/dzuhur" andi:key="adjustManualDzuhur" andi:summary="@string/adjust_manual_dzuhur_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/ashar" andi:key="adjustManualAshar" andi:summary="@string/adjust_manual_ashar_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/maghrib" andi:key="adjustManualMaghrib" andi:summary="@string/adjust_manual_maghrib_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+        <com.andi.alquran.customviews.MySeekBarPreference andi:title="@string/isya" andi:key="adjustManualIsya" andi:summary="@string/adjust_manual_isya_desc" andi:defaultValue="0" andi:max="60" andi:min="-60" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+</PreferenceScreen>

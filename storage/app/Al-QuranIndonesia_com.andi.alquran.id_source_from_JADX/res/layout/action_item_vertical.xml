@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="0" android:background="@drawable/action_item_btn" android:paddingTop="5dp" android:paddingBottom="5dp" android:focusable="true" android:clickable="true" android:layout_width="-1" android:layout_height="-2">
+    <ImageView android:id="@id/iv_icon" android:layout_width="-2" android:layout_height="-2" />
+    <TextView android:textColor="#fff" android:gravity="10" android:id="@id/tv_title" android:paddingLeft="5dp" android:paddingRight="10dp" android:layout_width="-1" android:layout_height="-1" android:text="Chart" />
+</LinearLayout>

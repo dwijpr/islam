@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:background="@color/bgSurahOnAyahList" android:layout_width="-1" android:layout_height="-2"
+    <LinearLayout android:gravity="11" android:orientation="1" android:padding="10dp" android:layout_width="-1" android:layout_height="-2">
+        <TextView android:textAppearance="?unknown_attr_ref: 1010041" android:textColor="@color/fontsura" android:gravity="11" android:id="@id/sura_name" android:layout_width="-2" android:layout_height="-2" />
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textColor="@color/bgHeader" android:gravity="11" android:id="@id/sura_traslation" android:layout_width="-2" android:layout_height="-2" />
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:gravity="11" android:id="@id/sura_type_count_ayas" android:layout_width="-2" android:layout_height="-2" />
+        <com.andi.alquran.arabic.ArabView android:textSize="18sp" android:textColor="@color/fontsura" android:gravity="11" android:id="@id/bismillah" android:layout_width="-2" android:layout_height="-2" android:layout_marginTop="3dp" />
+    </LinearLayout>
+    <LinearLayout android:orientation="1" android:id="@id/page_separator" android:background="?unknown_attr_ref: 1010030" android:layout_width="-1" android:layout_height="0.3dp" /> />

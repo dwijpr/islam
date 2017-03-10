@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="-1" android:layout_height="-2" android:layout_below="0x1020010">
+    <TextView android:id="@id/seekBarPrefValue" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="5dp" android:layout_toLeftOf="@id/seekBarPrefUnitsRight" />
+    <TextView android:gravity="5" android:id="@id/seekBarPrefUnitsRight" android:layout_width="-2" android:layout_height="-2" android:text="@string/minute" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <SeekBar android:id="@id/seekBar" android:layout_width="-1" android:layout_height="-2" android:layout_below="@id/seekBarPrefUnitsRight" android:layout_alignParentLeft="true" />
+</RelativeLayout>

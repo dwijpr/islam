@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_list_number_normal" android:layout_width="-1" android:layout_height="-2">
+    <LinearLayout android:orientation="1" android:id="@id/bagian_nomor" android:layout_width="44dp" android:layout_height="-2" android:layout_marginTop="6dp" android:layout_marginRight="3dp"
+        <LinearLayout android:gravity="11" android:id="@id/nomor" android:background="@drawable/box_nomor_ayah" android:layout_width="-1" android:layout_height="55dp">
+            <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textSize="11sp" android:textStyle="1" android:gravity="11" android:id="@id/numberSearch" android:paddingBottom="2dp" android:layout_width="-2" android:layout_height="-2" />
+        </LinearLayout>
+        <ImageView android:id="@id/iconSajadah" android:visibility="2" android:layout_width="-1" android:layout_height="25dp" android:layout_marginBottom="3dp" android:src="@drawable/ayah_sajadah" android:scaleType="3" />
+    </LinearLayout>
+    <LinearLayout android:orientation="1" android:paddingLeft="5dp" android:paddingTop="8dp" android:paddingRight="5dp" android:paddingBottom="8dp" android:layout_width="-1" android:layout_height="-2" android:layout_toRightOf="@id/bagian_nomor">
+        <TextView android:textSize="16sp" android:textColor="@color/texttranslation2" android:id="@id/textSearch" android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="4dp" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout app:layout_width="-1" app:layout_height="-2">
+    <android.support.v7.widget.Toolbar app:id="@id/toolbar" app:background="@color/bgHeader" app:layout_width="-1" app:layout_height="?unknown_attr_ref: 7f01004a" app:popupTheme="@style/ThemeOverlay_AppCompat" app:theme="@style/ThemeOverlay_AppCompat_Dark_ActionBar">
+        <RelativeLayout app:id="@id/titleContent" app:layout_width="-1" app:layout_height="-1" app:layout_centerVertical="true">
+            <TextView app:textAppearance="@style/TextAppearance_AppCompat_Title" app:textColor="0x106000b" app:ellipsize="3" app:gravity="3" app:id="@id/titleBar" app:layout_width="-2" app:layout_height="-2" app:text="@string/audio_manager" app:maxLines="1" app:layout_toLeftOf="@id/buttonDelete" app:layout_alignParentLeft="true" app:layout_centerVertical="true" />
+            <ImageButton app:id="@id/buttonDelete" app:background="?unknown_attr_ref: 7f01006a" app:paddingLeft="10dp" app:paddingRight="10dp" app:layout_width="48dp" app:layout_height="48dp" app:src="@drawable/ic_action_delete" app:layout_toLeftOf="@id/buttonDownload" app:layout_centerVertical="true" />
+            <ImageButton app:id="@id/buttonDownload" app:background="?unknown_attr_ref: 7f01006a" app:paddingLeft="10dp" app:paddingRight="10dp" app:layout_width="48dp" app:layout_height="48dp" app:layout_marginRight="2dp" app:src="@drawable/ic_action_download" app:layout_alignParentRight="true" app:layout_centerVertical="true" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</RelativeLayout>

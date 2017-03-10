@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:background="@drawable/bg_list_number_normal" android:descendantFocusability="2" android:layout_width="-1" android:layout_height="-2"
+    <RelativeLayout android:id="@id/nomer_sura" android:background="@drawable/box_nomor_sura_juz" android:layout_width="42dp" android:layout_height="42dp" android:layout_marginLeft="1dp" android:layout_marginRight="10dp" android:layout_centerVertical="true">
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:id="@id/sura_number" android:layout_width="-2" android:layout_height="-2" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/content_name" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="5dp" android:layout_toRightOf="@id/nomer_sura" android:layout_centerVertical="true">
+        <TextView android:textAppearance="?unknown_attr_ref: 1010041" android:id="@id/sura_name" android:layout_width="-2" android:layout_height="-2" android:text="Al-Fatihah" />
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textColor="@color/texttranslation" android:id="@id/sura_type_count_ayas" android:layout_width="-2" android:layout_height="-2" android:text="Makiyah | 7 ayat" android:layout_below="@id/sura_name" />
+    </RelativeLayout>
+    <ImageView android:id="@id/sura_img" android:layout_width="-2" android:layout_height="35dp" android:src="@drawable/sname_23" android:scaleType="4" android:layout_toLeftOf="@id/sura_action" android:layout_toRightOf="@id/content_name" android:layout_centerVertical="true" />
+    <ImageButton android:id="@id/sura_action" android:background="?unknown_attr_ref: 7f01006a" android:paddingLeft="5dp" android:paddingTop="10dp" android:paddingRight="8dp" android:paddingBottom="10dp" android:layout_width="-2" android:layout_height="-1" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="0" android:background="@color/bgHome" android:layout_width="-1" android:layout_height="-1">
+    <ImageView android:layout_width="-1" android:layout_height="-1" android:src="@drawable/bg_home" android:scaleType="6" />
+    <LinearLayout android:orientation="1" android:id="@id/buttonArea" android:layout_width="@dimen/button_home_landscape_width" android:layout_height="-2" android:weightSum="2.0" android:layout_centerHorizontal="true" android:layout_centerVertical="true"
+        <LinearLayout android:gravity="11" android:layout_gravity="1" android:orientation="0" android:layout_width="@dimen/quran_home_width" android:layout_height="@dimen/quran_home_height" android:weightSum="1.0" android:layout_weight="1.0">
+            <ImageView android:id="@id/imageAlQuranKarim" android:background="@drawable/ic_quranalkarim" android:layout_width="-2" android:layout_height="-2" android:layout_marginBottom="5dp" />
+        </LinearLayout>
+        <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="@dimen/button_home_landscape_height" android:weightSum="2.0" android:layout_weight="1.0">
+            <Button android:textSize="@dimen/button_home_landscape_font_size" android:textStyle="1" android:textColor="@drawable/bg_button_home_color" android:id="@id/buttonIndexBacaQuran" android:background="@drawable/bg_button_home" android:layout_width="0dp" android:layout_height="-1" android:layout_marginRight="@dimen/button_home_margin_left_right" android:text="@string/button_read_quran" android:layout_weight="1.0" android:textAllCaps="true" />
+            <Button android:textSize="@dimen/button_home_landscape_font_size" android:textStyle="1" android:textColor="@drawable/bg_button_home_color" android:id="@id/buttonIndexLastRead" android:background="@drawable/bg_button_home" android:layout_width="0dp" android:layout_height="-1" android:layout_marginLeft="@dimen/button_home_margin_left_right" android:text="@string/button_last_read" android:layout_weight="1.0" android:textAllCaps="true" />
+        </LinearLayout>
+        <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="@dimen/button_home_landscape_height" android:layout_marginTop="@dimen/button_home_margin_top_bottom" android:layout_marginBottom="@dimen/button_home_margin_top_bottom" android:weightSum="2.0" android:layout_weight="1.0">
+            <Button android:textSize="@dimen/button_home_landscape_font_size" android:textStyle="1" android:textColor="@drawable/bg_button_home_color" android:id="@id/buttonIndexPencarian" android:background="@drawable/bg_button_home" android:layout_width="0dp" android:layout_height="-1" android:layout_marginRight="@dimen/button_home_margin_left_right" android:text="@string/button_pencarian" android:layout_weight="1.0" android:textAllCaps="true" />
+            <Button android:textSize="@dimen/button_home_landscape_font_size" android:textStyle="1" android:textColor="@drawable/bg_button_home_color" android:id="@id/buttonIndexJadwalSholat" android:background="@drawable/bg_button_home" android:layout_width="0dp" android:layout_height="-1" android:layout_marginLeft="@dimen/button_home_margin_left_right" android:text="@string/button_prayer_times" android:layout_weight="1.0" android:textAllCaps="true" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="1" android:orientation="0" android:layout_width="@dimen/button_home_landscape_width_onecolumn" android:layout_height="@dimen/button_home_landscape_height" android:weightSum="1.0">
+            <Button android:textSize="@dimen/button_home_landscape_font_size" android:textStyle="1" android:textColor="@drawable/bg_button_home_color" android:id="@id/buttonIndexSetting" android:background="@drawable/bg_button_home" android:layout_width="0dp" android:layout_height="-1" android:text="@string/button_setting" android:layout_weight="1.0" android:textAllCaps="true" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="0" android:id="@id/bannerAds" android:visibility="2" android:layout_width="-2" android:layout_height="-2" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

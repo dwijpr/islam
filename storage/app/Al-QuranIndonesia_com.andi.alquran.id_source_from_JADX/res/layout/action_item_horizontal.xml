@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="0" android:background="@drawable/action_item_btn" android:focusable="true" android:clickable="true" android:layout_width="-1" android:layout_height="-2">
+    <ImageView android:id="@id/iv_icon" android:layout_width="-2" android:layout_height="-2" android:layout_centerHorizontal="true" />
+    <TextView android:textColor="#fff" android:gravity="1" android:id="@id/tv_title" android:paddingLeft="5dp" android:paddingRight="5dp" android:layout_width="-2" android:layout_height="-2" android:text="Chart" android:layout_below="@id/iv_icon" android:layout_centerHorizontal="true" />
+</RelativeLayout>

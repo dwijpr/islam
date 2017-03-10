@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:background="@color/darkBgBase" android:layout_width="-1" android:layout_height="-1"
+    <RelativeLayout android:orientation="0" android:id="@id/lastReadClicked" android:background="@drawable/bg_list_full_alternate_dark" android:padding="8dp" android:clickable="true" android:layout_width="-1" android:layout_height="-2">
+        <ImageView android:id="@id/logoLastRead" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="10dp" android:src="@drawable/ic_white_last_read" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/rowLastRead" android:layout_width="-2" android:layout_height="-2" android:layout_toRightOf="@id/logoLastRead" android:layout_centerVertical="true">
+            <TextView android:textAppearance="?unknown_attr_ref: 1010041" android:textStyle="1" android:textColor="@color/darkTextQuran" android:id="@id/nameLastRead" android:layout_width="-2" android:layout_height="-2" android:text="@string/msg_last_read_title" />
+            <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textColor="@color/darkTextQuran2" android:id="@id/suraNameLastRead" android:layout_width="-2" android:layout_height="-2" android:text="Surah dan Ayat" android:layout_below="@id/nameLastRead" />
+        </RelativeLayout>
+        <TextView android:textSize="10sp" android:textColor="@color/darkCoklat" android:gravity="11" android:id="@id/dateLastRead" android:layout_width="-2" android:layout_height="-2" android:text="00:00" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:id="@id/pembatas" android:background="@color/darkBgDivider" android:layout_width="-1" android:layout_height="0.3dp" android:layout_below="@id/lastReadClicked" />
+    <ListView android:id="0x102000a" android:layout_width="-1" android:layout_height="-2" android:cacheColorHint="@color/darkBgDivider" android:dividerHeight="0.3dp" android:layout_below="@id/pembatas" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:background="@drawable/bg_list_number_normal_dark" android:paddingLeft="0dp" android:paddingTop="5dp" android:paddingRight="5dp" android:paddingBottom="5dp" android:layout_width="-1" android:layout_height="-2"
+    <RelativeLayout android:id="@id/nomer_juz" android:background="@drawable/box_nomor_sura_juz_dark" android:layout_width="42dp" android:layout_height="42dp" android:layout_marginLeft="1dp" android:layout_marginRight="10dp" android:layout_centerVertical="true">
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textColor="@color/darkCoklatTua" android:id="@id/juz_number" android:layout_width="-2" android:layout_height="-2" android:text="1" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/content_name" android:layout_width="-2" android:layout_height="-2" android:layout_toRightOf="@id/nomer_juz" android:layout_centerVertical="true">
+        <TextView android:textAppearance="?unknown_attr_ref: 1010041" android:textColor="@color/darkTextQuran" android:id="@id/juz_name" android:layout_width="-2" android:layout_height="-2" android:text="Juz 1" />
+        <TextView android:textAppearance="?unknown_attr_ref: 1010042" android:textColor="@color/texttranslation" android:id="@id/sura_name_and_aya" android:layout_width="-2" android:layout_height="-2" android:text="Start from Al-Fatihah:1" android:layout_below="@id/juz_name" />
+    </RelativeLayout>
+</RelativeLayout>

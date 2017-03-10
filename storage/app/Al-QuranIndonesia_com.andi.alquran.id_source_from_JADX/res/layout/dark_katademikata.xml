@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="2dp" android:paddingTop="2dp" android:paddingRight="2dp" android:paddingBottom="2dp" android:descendantFocusability="0" android:layout_width="-1" android:layout_height="-2">
+    <LinearLayout android:gravity="1" android:orientation="1" android:background="@drawable/border_kata_dark" android:descendantFocusability="1" android:layout_width="-2" android:layout_height="-2">
+        <com.andi.alquran.arabic.ArabView android:textSize="20sp" android:textColor="@color/darkCoklat" android:id="@id/arabic" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" />
+        <TextView android:textSize="12sp" android:textColor="@color/darkCoklat" android:id="@id/translation" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" />
+    </LinearLayout>
+</FrameLayout>

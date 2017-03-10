@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:id="@id/mapsFragmentLayout" android:layout_width="-1" android:layout_height="-1"
+    <RelativeLayout android:id="@id/layoutMaps" android:layout_width="-1" android:layout_height="-1" android:layout_above="@id/layoutButtonMaps">
+        <fragment android:name="com.google.android.gms.maps.SupportMapFragment" android:id="@id/mapChoose" android:layout_width="-1" android:layout_height="-1" />
+        <TextView android:textColor="@color/putih" android:id="@id/infoMarker" android:background="@drawable/bg_marker_info" android:paddingLeft="7dp" android:paddingTop="6dp" android:paddingRight="7dp" android:paddingBottom="6dp" android:visibility="2" android:layout_width="-2" android:layout_height="-2" android:layout_above="@id/btnMarker" android:layout_centerHorizontal="true" android:fontFamily="sans-serif-light" />
+        <ImageButton android:id="@id/btnMarker" android:background="0x106000d" android:layout_width="-2" android:layout_height="-2" android:src="@drawable/ic_place" android:tint="@color/hitam" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/layoutButtonMaps" android:visibility="2" android:layout_width="-1" android:layout_height="-2" android:layout_alignParentBottom="true">
+        <TextView android:textColor="@color/hitamnoterang" android:gravity="11" android:layout_gravity="11" android:id="@id/infoText" android:paddingLeft="10dp" android:paddingTop="10dp" android:paddingRight="10dp" android:paddingBottom="5dp" android:layout_width="-2" android:layout_height="-2" android:text="@string/msg_maps_info" android:fontFamily="sans-serif-light" />
+        <Button android:textStyle="1" android:textColor="@color/putih" android:gravity="11" android:id="@id/mapsButtonSave" android:padding="16dp" android:layout_width="-1" android:layout_height="-2" android:text="@string/save" android:layout_below="@id/infoText" android:fontFamily="sans-serif-light" style="@style/Widget_AppCompat_Button_Colored" />
+    </RelativeLayout>
+</RelativeLayout>

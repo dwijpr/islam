@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="11" android:orientation="1" android:padding="8dp" android:layout_width="-1" android:layout_height="-1">
+    <EditText android:id="@id/folder_name" android:layout_width="-1" android:layout_height="-2" android:hint="@string/folder_name_hint" android:selectAllOnFocus="true" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/type_calc">
+        <com.andi.alquran.customviews.MyListPreference android:entries="@array/arrTypeCalc" android:title="@string/type_calc_title" android:key="typeCalc" android:dialogTitle="@string/type_calc_desc" android:entryValues="@array/arrTypeCalcValues" />
+        <com.andi.alquran.customviews.MyListPreference android:entries="@array/asrJuristic" android:title="@string/juristic_method_title" android:key="typeJuristic" android:dialogTitle="@string/juristic_method_desc" android:entryValues="@array/asrJuristicValues" />
+        <com.andi.alquran.customviews.MyListPreference android:entries="@array/adjustHighLats" android:title="@string/high_latitude_title" android:key="typeAdjustHighLat" android:dialogTitle="@string/high_latitude_desc" android:entryValues="@array/adjustHighLatsValues" />
+        <Preference android:title="@string/adjust_manual_title" android:key="adjustManual" android:summary="@string/adjust_manual_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/prayer_times_general" android:key="categoryPTimeOther">
+        <com.andi.alquran.customviews.MyListPreference android:entries="@array/arrTypeTimeFormat" android:title="@string/time_format_title" android:key="typeTimeFormat" android:dialogTitle="@string/time_format_desc" android:entryValues="@array/arrTypeTimeFormatValues" />
+        <Preference android:title="@string/volume_adzan_title" android:key="setVolumeAdzan" />
+        <Preference android:title="@string/adjust_hijri_cal_title" android:key="setHijriCal" />
+        <CheckBoxPreference android:title="@string/disable_jumat_title" android:key="disableJumat" android:summary="@string/disable_jumat_desc" />
+        <CheckBoxPreference android:title="@string/force_notif_lollipop_title" android:key="forcingNotifLollipop" android:summary="@string/force_notif_lollipop_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+    <com.andi.alquran.customviews.MyCategoryPreference android:title="@string/information">
+        <Preference android:icon="@drawable/menu_about" android:title="@string/info_app_prayer_times_title" android:key="infoApp" android:summary="@string/info_app_prayer_times_desc" />
+    </com.andi.alquran.customviews.MyCategoryPreference>
+</PreferenceScreen>

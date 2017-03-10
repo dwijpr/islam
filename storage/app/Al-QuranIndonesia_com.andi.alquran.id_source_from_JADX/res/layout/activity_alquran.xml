@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="1" android:background="@color/putih" android:layout_width="-1" android:layout_height="-1">
+    <include android:id="@id/header" layout="@layout/header_custom" />
+    <android.support.v4.view.ViewPager android:id="@id/pager" android:layout_width="-1" android:layout_height="-2" android:layout_above="@id/playerButtonsArea" android:layout_below="@id/header">
+        <android.support.v4.view.PagerTabStrip android:textColor="@color/putih" android:layout_gravity="30" android:id="@id/pager_title_strip" android:background="@color/bgHeader" android:paddingTop="4dp" android:paddingBottom="4dp" android:layout_width="-1" android:layout_height="-2" />
+    </android.support.v4.view.ViewPager>
+    <LinearLayout android:gravity="1" android:orientation="0" android:id="@id/playerButtonsArea" android:background="@color/bgPlayerArea" android:layout_width="-1" android:layout_height="-2" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+        <LinearLayout android:gravity="1" android:layout_width="250dp" android:layout_height="-2">
+            <ImageButton android:layout_gravity="10" android:id="@id/repeaterButton" android:background="?unknown_attr_ref: 7f01006a" android:padding="5dp" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="5dp" android:layout_weight="0.1" style="@*style/MediaButton" />
+            <ImageButton android:layout_gravity="10" android:id="@id/prevButton" android:background="?unknown_attr_ref: 7f01006a" android:padding="5dp" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:src="@drawable/ic_action_previous" android:layout_weight="0.1" style="@*style/MediaButton" />
+            <ImageButton android:layout_gravity="10" android:id="@id/playButton" android:background="?unknown_attr_ref: 7f01006a" android:padding="5dp" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_weight="0.1" style="@*style/MediaButton" />
+            <ImageButton android:layout_gravity="10" android:id="@id/nextButton" android:background="?unknown_attr_ref: 7f01006a" android:padding="5dp" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:src="@drawable/ic_action_next" android:layout_weight="0.1" style="@*style/MediaButton" />
+            <ImageButton android:layout_gravity="10" android:id="@id/stopButton" android:background="?unknown_attr_ref: 7f01006a" android:padding="5dp" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5dp" android:src="@drawable/ic_action_stop" android:layout_weight="0.1" style="@*style/MediaButton" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
