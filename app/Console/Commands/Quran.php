@@ -40,7 +40,7 @@ class Quran extends Command
             $item = new stdClass;
             $item->dir = 
                 sprintf('%03d', $sura->id).'-'.text_to_url($sura->name);
-            $item->count = count($sura->ayas);
+            $item->count = count($sura->ayats);
             $items[] = $item;
         }
         $this->comment('creating Quran directory...');
@@ -53,7 +53,7 @@ class Quran extends Command
             $this->error('Failed to create Quran directory...');
         }
         $template =
-            Storage::get('/template/quran-sura-aya-data.json');
+            Storage::get('/template/quran-sura-ayat-data.json');
         foreach ($items as $i => $item) {
             $item_directory = $quran_path.'/'.$item->dir;
             if (!Storage::makeDirectory($item_directory)) {
