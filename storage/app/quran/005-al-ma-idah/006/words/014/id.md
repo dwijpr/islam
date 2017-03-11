@@ -1,0 +1,1 @@
+dengan/pada kepalamu
