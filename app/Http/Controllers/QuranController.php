@@ -81,6 +81,7 @@ class Ayat {
                 , $this->ar, 1
             );
         }
+        $this->progress = ceil($this->progress);
     }
 }
 

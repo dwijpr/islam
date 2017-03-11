@@ -34,7 +34,7 @@
             <hr>
             @foreach ($sura->ayats as $ayat)
                 <?php
-                    if ($ayat->progress === 0) {
+                    if ($ayat->progress < 1) {
                         continue;
                     }
                 ?>
