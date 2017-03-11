@@ -1,0 +1,1 @@
+berdiri/mengerjakan
