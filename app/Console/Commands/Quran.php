@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Quran as QuranModel;
 use stdClass, Storage;
 use App\QuranSura;
+use App\QuranDB\Sura as QuranDBSura;
 
 class Quran extends Command
 {
@@ -34,6 +35,8 @@ class Quran extends Command
     }
 
     function build() {
+        $this->warn('disabled! check the code for execution...');
+        return;
         $suras = QuranModel::getAllSura();
         $items = [];
         foreach ($suras as $i => $sura) {
@@ -86,6 +89,19 @@ class Quran extends Command
     }
 
     function show() {
+        $headers = ['#', 'Title', 'Arti'];
+        $this->table($headers, $this->suras());
+    }
+
+    function sync() {
+        $suras = $this->suras();
+        foreach ($suras as $i => $sura) {
+            $result = QuranDBSura::updateOrCreate($sura);
+            $this->info($result);
+        }
+    }
+
+    function suras() {
         $suras = [];
         $directories = Storage::directories('quran');
         foreach ($directories as $i => $directory) {
@@ -93,18 +109,13 @@ class Quran extends Command
                 continue;
             }
             $sura = new Sura($directory);
-            if ($sura->progress) {
-                $suras[] = $sura;
-            }
+            $suras[] = [
+                'id' => $sura->_id,
+                'title' => $sura->title,
+                'arti' => $sura->arti,
+            ];
         }
-        foreach ($suras as $i => $sura) {
-            foreach ($sura->ayas as $_i => $aya) {
-                if (!$aya->progress) {
-                    unset($suras[$i]->ayas[$_i]);
-                }
-            }
-        }
-        dd($suras);
+        return $suras;
     }
 
     /**
@@ -132,8 +143,29 @@ class Quran extends Command
     }
 }
 
+class Word {
+    public function __construct($sura, $aya, $word) {
+        $this->_id = $word;
+        $sura_dir_name = text_to_url(QuranSura::$NAMES[$sura]);
+        $path =
+            'quran/'.sprintf('%03d', $sura).'-'.$sura_dir_name
+            .'/'.sprintf('%03d', $aya)
+            .'/words/'.sprintf('%03d', $word)
+        ;
+        $this->lang = new stdClass;
+        $this->lang->ar = 
+            Storage::exists($path.'/ar.md')
+            ?Storage::get($path.'/ar.md'):'';
+        $this->lang->id =
+            Storage::exists($path.'/id.md')
+            ?Storage::get($path.'/id.md'):'';
+        $this->lang->en =
+            Storage::exists($path.'/en.md')
+            ?Storage::get($path.'/en.md'):'';
+    }
+}
+
 class Aya {
-    var $progress = 0;
 
     public function __construct($sura, $aya) {
         $this->_id = $aya;
@@ -150,70 +182,25 @@ class Aya {
         if (!Storage::exists('/quran/audio/'.$this->audio.'.mp3')) {
             $this->audio = false;
         }
-        if ($this->ar) {
-            $this->progress += 25;
-            if ($this->id) {
-                $this->progress += 15;
-            }
-            if ($this->en) {
-                $this->progress += 10;
-            }
-            if ($this->audio) {
-                $this->progress += 5;
-            }
-        }
-        if ($data->words->count) {
-            $this->progress += 1;
-            $per_word_progress = 44/$data->words->count;
-        }
-        $marks = [
-            'ۖ', 'ؕ', 'ۙ', 'ۚ',
-        ];
-        foreach ($marks as $i => $mark) {
-            $view = view('partial.quran-mark-span', [
-                'mark' => $mark,
-            ])->render();
-            $this->ar = str_replace($mark, $view, $this->ar);
-        }
-        foreach ($word_directories as $i => $directory) {
-            if (@$per_word_progress) {
-                if (Storage::exists($directory.'/ar.md')) {
-                    $this->progress += $per_word_progress/2;
-                    if (Storage::exists($directory.'/id.md')) {
-                        $this->progress += $per_word_progress/3;
-                    }
-                    if (Storage::exists($directory.'/en.md')) {
-                        $this->progress += $per_word_progress/6;
-                    }
-                }
-            }
-            $word = 
-                Storage::exists($directory.'/ar.md')
-                ?Storage::get($directory.'/ar.md'):'';
-            $word_id =
-                Storage::exists($directory.'/id.md')
-                ?Storage::get($directory.'/id.md'):'';
-            $word_en =
-                Storage::exists($directory.'/en.md')
-                ?Storage::get($directory.'/en.md'):'';
+        for ($i=0; $i < $data->words->count; $i++) { 
+            $word = new Word($sura, $aya, $i+1);
             $this->words[] = $word;
-            $view = view('partial.quran-word-span', [
-                'word' => $word,
-                'trans' => $word_id.' | '.$word_en,
-            ])->render();
-            $this->ar = preg_replace(
-                '/'.$word.'/'
-                , $view
-                , $this->ar, 1
-            );
         }
     }
 }
 
 class Sura {
     var $progress = 0;
+
+    static $sura_artis = false;
+    static $sura_titles = false;
+    static $resource_dir =
+        'Al-QuranIndonesia_com.andi.alquran.id_source_from_JADX';
     
     public function __construct($input) {
+        if (!self::$sura_artis) {
+            $this->load();
+        }
         $this->identifier = str_replace('quran/', '', $input);
         preg_match('/(\d{3})-.+$/', $input, $match);
         $this->id = $match[1];
@@ -225,9 +212,26 @@ class Sura {
             preg_match('/quran\/'.$this->id.'.*\/(\d+)/', $directory, $match);
             $id = $match[1];
             $aya = new Aya(intval($this->id), intval($id));
-            $this->progress += $aya->progress;
             $this->ayas[] = $aya;
         }
-        $this->progress = ($this->progress/$this->quranSura->count);
+        $this->arti = self::$sura_artis[$this->_id-1];
+        $this->title = self::$sura_titles[$this->_id-1];
+    }
+
+    function load() {
+        $dataPath = self::$resource_dir.'/res/values/arrays.xml';
+        $xml = simplexml_load_string(Storage::get($dataPath));
+
+        $sura_artis = $xml->{"string-array"}[26];
+        self::$sura_artis = [];
+        foreach ($sura_artis as $i => $sura_arti) {
+            self::$sura_artis[] = str_replace('"', '', strval($sura_arti));
+        }
+
+        $sura_titles = $xml->{"string-array"}[27];
+        self::$sura_titles = [];
+        foreach ($sura_titles as $i => $sura_title) {
+            self::$sura_titles[] = str_replace('"', '', strval($sura_title));
+        }
     }
 }

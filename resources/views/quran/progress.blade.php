@@ -22,6 +22,14 @@
 </style>
 @endpush
 
+@push ('scripts')
+<script>
+$(function () {
+    console.log("I'm JavaScript!");
+});
+</script>
+@endpush
+
 @section ('content')
 <div class="container">
     <div class="row">

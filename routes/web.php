@@ -20,3 +20,5 @@ Route::get('/quran', 'QuranController@index');
 Route::get('/quran/audio/{key}', 'QuranController@audio');
 Route::get('/quran/{surah}', 'QuranController@sura');
 Route::get('/quran/{surah}/{ayat}', 'QuranController@ayat');
+
+Route::get('/qurandb', 'QuranDBController@index');
