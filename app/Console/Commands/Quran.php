@@ -89,8 +89,16 @@ class Quran extends Command
     }
 
     function show() {
+        $data = $this->data();
+        $suras = $data['suras'];
+        $ayas = $data['ayas'];
+        $words = $data['words'];
         $headers = ['#', 'Title', 'Arti'];
-        $this->table($headers, $this->suras());
+        $this->table($headers, $suras);
+        $headers = ['Sura ID', 'Aya ID', 'Ar', 'Id', 'En'];
+        $this->table($headers, $ayas);
+        $headers = ['Sura ID', 'Aya ID', 'Word ID', 'Ar', 'Id', 'En'];
+        $this->table($headers, $words);
     }
 
     function sync() {
@@ -101,8 +109,25 @@ class Quran extends Command
         }
     }
 
-    function suras() {
-        $suras = [];
+    function sura($sura) {
+        $directories = Storage::directories('quran');
+        $match = preg_grep("/(".sprintf("%03d", $sura).").+$/", $directories);
+        $directory = @array_values($match)[0];
+        if ($directory) {
+            $sura = new Sura($directory);
+            return [
+                'id' => $sura->_id,
+                'title' => $sura->title,
+                'arti' => $sura->arti,
+            ];
+        }
+        $this->line('');
+        $this->error('ERROR!!! no sura found!');
+        dd();
+    }
+
+    function data() {
+        $words = $ayas = $suras = [];
         $directories = Storage::directories('quran');
         foreach ($directories as $i => $directory) {
             if ($directory === 'quran/audio') {
@@ -114,8 +139,37 @@ class Quran extends Command
                 'title' => $sura->title,
                 'arti' => $sura->arti,
             ];
+            foreach ($sura->ayas as $aya) {
+                if (@$aya->ar) {
+                    $ayas[] = [
+                        'sura_id' => $sura->_id,
+                        'aya_id' => $aya->_id,
+                        'lang_ar' => $aya->ar?'✓':'',
+                        'lang_id' => $aya->id?'✓':'',
+                        'lang_en' => $aya->en?'✓':'',
+                    ];
+                    if (@$aya->words) {
+                        foreach ($aya->words as $word) {
+                            if ($word->lang->ar) {
+                                $words[] = [
+                                    'sura_id' => $sura->_id,
+                                    'aya_id' => $aya->_id,
+                                    'word_id' => $word->_id,
+                                    'lang_ar' => $word->lang->ar?'✓':'',
+                                    'lang_id' => $word->lang->id?'✓':'',
+                                    'lang_en' => $word->lang->en?'✓':'',
+                                ];
+                            }
+                        }
+                    }
+                }
+            }
         }
-        return $suras;
+        return [
+            'suras' => $suras,
+            'ayas' => $ayas,
+            'words' => $words,
+        ];
     }
 
     /**

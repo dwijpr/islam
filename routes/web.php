@@ -22,3 +22,4 @@ Route::get('/quran/{surah}', 'QuranController@sura');
 Route::get('/quran/{surah}/{ayat}', 'QuranController@ayat');
 
 Route::get('/qurandb', 'QuranDBController@index');
+Route::get('/qurandb/sura/title/{sura}', 'QuranDBController@suraTitle');

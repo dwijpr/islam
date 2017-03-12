@@ -26,7 +26,7 @@
 <script>
 $(function () {
     var Sura = function (data) {
-        var el = $("<div>"+data.title+"</div>");
+        var el = $("<div>"+data.title+" ("+data.arti+")"+"</div>");
         $("#wrapper").append(el);
     };
 
