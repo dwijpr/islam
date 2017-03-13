@@ -7,6 +7,8 @@ use App\Quran as QuranModel;
 use stdClass, Storage;
 use App\QuranSura;
 use App\QuranDB\Sura as QuranDBSura;
+use App\QuranDB\Aya as QuranDBAya;
+use App\QuranDB\Word as QuranDBWord;
 
 class Quran extends Command
 {
@@ -102,9 +104,20 @@ class Quran extends Command
     }
 
     function sync() {
-        $suras = $this->suras();
+        $data = $this->data();
+        $suras  = $data['suras'];
+        $ayas   = $data['ayas'];
+        $words  = $data['words'];
         foreach ($suras as $i => $sura) {
             $result = QuranDBSura::updateOrCreate($sura);
+            $this->info($result);
+        }
+        foreach ($ayas as $i => $aya) {
+            $result = QuranDBAya::updateOrCreate($aya);
+            $this->info($result);
+        }
+        foreach ($words as $i => $word) {
+            $result = QuranDBWord::updateOrCreate($word);
             $this->info($result);
         }
     }
@@ -144,9 +157,9 @@ class Quran extends Command
                     $ayas[] = [
                         'sura_id' => $sura->_id,
                         'aya_id' => $aya->_id,
-                        'lang_ar' => $aya->ar?'✓':'',
-                        'lang_id' => $aya->id?'✓':'',
-                        'lang_en' => $aya->en?'✓':'',
+                        'lang_ar' => $aya->ar,
+                        'lang_id' => $aya->id,
+                        'lang_en' => $aya->en,
                     ];
                     if (@$aya->words) {
                         foreach ($aya->words as $word) {
@@ -155,9 +168,9 @@ class Quran extends Command
                                     'sura_id' => $sura->_id,
                                     'aya_id' => $aya->_id,
                                     'word_id' => $word->_id,
-                                    'lang_ar' => $word->lang->ar?'✓':'',
-                                    'lang_id' => $word->lang->id?'✓':'',
-                                    'lang_en' => $word->lang->en?'✓':'',
+                                    'lang_ar' => $word->lang->ar,
+                                    'lang_id' => $word->lang->id,
+                                    'lang_en' => $word->lang->en,
                                 ];
                             }
                         }
