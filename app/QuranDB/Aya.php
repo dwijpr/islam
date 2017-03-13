@@ -13,4 +13,8 @@ class Aya extends Model
     ];
 
     public $incrementing = false;
+
+    public function words() {
+        return $this->hasMany(Word::class);
+    }
 }

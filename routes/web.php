@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get(
+    '/quran/android/asset/drawable/{filename}'
+    , 'AndroidAssetController@getDrawable'
+);
+
 Route::get('/quran/progress', 'QuranController@progress');
 Route::get('/quran', 'QuranController@index');
 Route::get('/quran/audio/{key}', 'QuranController@audio');
