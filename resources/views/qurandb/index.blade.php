@@ -2,93 +2,41 @@
 
 @push ('styles')
 <style>
-#wrapper {
+#sura-wrapper {
     border: 1px solid #eaeaea;
     border-bottom: none;
 }
-#wrapper .sura {
+#sura-wrapper .sura {
     border-bottom: 1px solid #eaeaea;
     padding: 3px 9px;
 }
-#wrapper .sura .sura-number {
+#sura-wrapper .sura .sura-number {
     position: relative;
 }
-#wrapper .sura .sura-number .frame {
+#sura-wrapper .sura .sura-number .frame {
     width: 100%;
 }
-#wrapper .sura .sura-number .frame img {
+#sura-wrapper .sura .sura-number .frame img {
     width: 48px;
 }
-#wrapper .aya .aya-number .frame img {
+#aya-wrapper .aya .aya-number .frame img {
     width: 56px;
 }
-#wrapper .sura .sura-number .sura-number-value
-, #wrapper .aya .aya-number .aya-number-value {
+#sura-wrapper .sura .sura-number .sura-number-value
+, #aya-wrapper .aya .aya-number .aya-number-value {
     width: 100%;
     position: absolute;
     top: 14px;
     left: 0;
 }
-#wrapper .aya .aya-number .aya-number-value {
+#aya-wrapper .aya .aya-number .aya-number-value {
     top: 23px;
 }
 </style>
 @endpush
 
 @push ('scripts')
-<script>
-var quran = false;
-$(function () {
-    var suraTemplate = $(".sura");
-    var ayaTemplate = $(".aya");
-
-    var Aya = function (data) {
-        var self = this;
-        var el = ayaTemplate.clone();
-        el.find(".aya-number .aya-number-value").html(data.aya_id);
-        el.find(".aya-lang .aya-lang-ar").html(data.lang_ar);
-        this.view = function () {
-            return el;
-        }
-        return self;
-    }
-
-    var Sura = function (data) {
-        var self = this;
-        var ayas = [];
-        this.add = function (aya) {
-            el.find('.sura-ayas').append(aya.view());
-        }
-        if (data.aya_count) {
-            var el = suraTemplate.clone();
-            el.find(".sura-number .sura-number-value").html(data.id);
-            el.find(".sura-title .sura-title-real").html(data.title);
-            el.find(".sura-title .sura-title-arti").html(data.arti);
-            for (var i = 0; i < data.aya_count; i++) {
-                var aya = new Aya(data.ayas[i]);
-                self.add(aya);
-            }
-            $("#wrapper").append(el);
-        }
-        return self;
-    };
-
-    var Quran = function () {
-        var self = this;
-        var surasData = {!! $suras->toJson() !!};
-        var suras = [];
-        surasData.forEach(function (sura) {
-            suras.push(new Sura(sura));
-        });
-        this.getSuras = function () {
-            return suras;
-        };
-        return self;
-    };
-
-    quran = new Quran();
-});
-</script>
+@include ('qurandb.script')
 @endpush
 
 @section ('content')
@@ -107,7 +55,7 @@ $(function () {
         </div>
     </span>
     <div class="sura">
-        <div class="row">
+        <div class="row sura-header">
             <div class="sura-number col-xs-3">
                 <div class="frame text-center">
                     <img src="{{ url(
@@ -121,16 +69,14 @@ $(function () {
                 <div class="sura-title-arti"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 sura-ayas">
-            </div>
-        </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12" id="wrapper">
-        </div>
+        <div class="col-sm-12" id="sura-wrapper"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="aya-wrapper"></div>
     </div>
 </div>
 @endsection
