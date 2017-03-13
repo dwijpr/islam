@@ -11,6 +11,10 @@ class QuranDBController extends Controller
     static $path = 'Al-QuranIndonesia_com.andi.alquran.id_source_from_JADX';
     public function index() {
         $suras = Sura::all();
+        foreach ($suras as $i => $sura) {
+            $sura->aya_count = $sura->ayas()->count();
+            $sura->ayas = $sura->ayas;
+        }
         return view('qurandb.index', [
             'suras' => $suras,
         ]);

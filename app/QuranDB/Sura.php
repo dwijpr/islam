@@ -10,12 +10,8 @@ class Sura extends Model
         'id', 'title', 'arti',
     ];
     protected $appends = [
-        'image_title', 'aya_count',
+        'image_title',
     ];
-
-    public function getAyaCountAttribute() {
-        return $this->ayas()->count();
-    }
 
     public function getImageTitleAttribute() {
         return url('/qurandb/sura/title/'.$this->id);
